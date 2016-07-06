@@ -2,8 +2,8 @@ FROM area51/alpine
 MAINTAINER Peter Mount <peter@retep.org>
 
 # See README.md for what these mean
-ENV         RABBITMQ_VERSION=3.7.500.5 \
-            RABBITMQ_MILESTONE=3.7.0_milestone5
+ENV         RABBITMQ_VERSION=3.6.3 \
+            RABBITMQ_MILESTONE=3.6.3
 
 ENV         RABBITMQ_HOME=/opt/rabbitmq_server-${RABBITMQ_VERSION} \
             PLUGINS_DIR=${RABBITMQ_HOME}/plugins \
