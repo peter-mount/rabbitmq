@@ -5,6 +5,19 @@ This is based on the official rabbitmq image with the following plugins enabled:
 * rabbitmq_shovel_management
 * rabbitmq_web_stomp
 
+## Tags
+
+Each tag represents the version:
+* latest is the latest stable build, 3.6.3
+* 3.6.3 is the stable build
+* 3.7.0m5 is 3.7.0 milestone 5 preview. Use this at your own risk.
+
+The master branch is always the preview, i.e. 3.7.0m5 currently. Once that version is released then we should create that branch and configure docker to build that with the 3.7.0 and latest tags.
+
+Master will then become the next milestone branch when thats ready.
+
+## Notes on the milestone builds
+
 Note: This is the current 3.7 branch which has not yet been released yet.
 
 Current version: 3.7.0 milestone 4
