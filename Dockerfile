@@ -2,8 +2,8 @@ FROM area51/alpine
 MAINTAINER Peter Mount <peter@retep.org>
 
 # See README.md for what these mean
-ENV         RABBITMQ_VERSION=3.7.500.5 \
-            RABBITMQ_MILESTONE=3.7.0_milestone5
+ENV         RABBITMQ_VERSION=3.6.6 \
+            RABBITMQ_MILESTONE=3.6.6
 
 ENV         RABBITMQ_HOME=/opt/rabbitmq_server-${RABBITMQ_VERSION} \
             PLUGINS_DIR=${RABBITMQ_HOME}/plugins \
@@ -60,9 +60,20 @@ RUN chmod a+x /docker-entrypoint.sh &&\
     apk del --purge tar xz &&\
     rm -Rf /var/cache/apk/*
 
-EXPOSE 15671 15672 \
-        5672 \
-        25672 \
-        1883 \
-        61613
+#    sed -e "s/# loopback_users.guest = false/loopback_users.guest = false/g" \
+#	-i \
+#	${RABBITMQ_HOME}/etc/rabbitmq/rabbitmq.conf
+
+# ======================================================================
+# The available ports
+# ======================================================================
+#  1883 MQTT
+#  5672	Standard (reserved) AMQP port
+# 15672 Web Management
+# 15674 Web Stomp
+# 25672 Clustering
+# 61613 Stomp
+
+# ======================================================================
+# EXPOSE 15671 15672 5672 25672 1883 61613
 
