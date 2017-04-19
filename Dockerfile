@@ -21,6 +21,7 @@ VOLUME      /var/lib/rabbitmq
 ENTRYPOINT  ["/docker-entrypoint.sh"]
 #CMD         ["/docker-entrypoint.sh"]
 
+
 RUN chmod a+x /docker-entrypoint.sh &&\
     apk add --update \
 	tar \
