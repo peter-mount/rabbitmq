@@ -60,9 +60,20 @@ RUN chmod a+x /docker-entrypoint.sh &&\
     apk del --purge tar xz &&\
     rm -Rf /var/cache/apk/*
 
-EXPOSE 15671 15672 \
-        5672 \
-        25672 \
-        1883 \
-        61613
+#    sed -e "s/# loopback_users.guest = false/loopback_users.guest = false/g" \
+#	-i \
+#	${RABBITMQ_HOME}/etc/rabbitmq/rabbitmq.conf
+
+# ======================================================================
+# The available ports
+# ======================================================================
+#  1883 MQTT
+#  5672	Standard (reserved) AMQP port
+# 15672 Web Management
+# 15674 Web Stomp
+# 25672 Clustering
+# 61613 Stomp
+
+# ======================================================================
+# EXPOSE 15671 15672 5672 25672 1883 61613
 
